@@ -31,6 +31,7 @@
       <% elsif company_signed_in? %>
         <li class="nav-item"><%= link_to current_company.name, company_path(current_company), class: "nav-link company-name" %></li> 
         <li class="nav-item"><%= link_to 'ログアウト', destroy_company_session_path, method: :delete, class: "nav-link logout" %></li> 
+        <li class="nav-item"><%= link_to '案件を提案する', new_order_path, class: "nav-link logout" %></li> 
       <% else %>
         <li class="nav-item"><%= link_to 'クリエイターでログイン', new_creator_session_path, class: "nav-link login" %></li>
         <li class="nav-item"><%= link_to '法人でログイン', new_company_session_path, class: "nav-link login" %></li>
