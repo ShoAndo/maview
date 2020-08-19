@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :move_to_index, only: :new
+
   def index
     @orders = Order.all
   end
@@ -17,6 +19,12 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def move_to_index
+    unless company_signed_in?
+      redirect_to root_path
+    end
+  end
 
   def order_params
     params.require(:order).permit(:title, :content, :last_day, :deadline, :award).merge(company_id: current_company.id)
