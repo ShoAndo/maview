@@ -1,0 +1,123 @@
+<div class="new-order-contents">
+  <div class="new-order-main">
+    <h2 class="items-sell-title">案件の情報を入力</h2>
+    <%= form_with model: @order, local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <%# 案件名と説明 %>
+    <div class="new-order">
+      <div class="weight-bold-text">
+        案件名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :title, class:"order-text", placeholder:"タイトル（必須 40文字まで)", maxlength:"40" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          案件の説明
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :content, class:"order-text", placeholder:"案件の説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+    <%# /案件名と説明 %>
+
+    <%# 案件の詳細 %>
+    <div class="order-detail">
+      <div class="weight-bold-text">締め切り</div>
+      <div class="form">
+        <div class="weight-bold-text">
+          応募締め切り
+          <span class="indispensable">必須</span>
+        </div>
+        <div class='input-birth-wrap'>
+          <%= raw sprintf(
+                  f.date_select(
+                    :last_day,
+                    class:'select-birth',
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: 2020,
+                    end_year: (Time.now.year + 3),
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+        </div>
+        <div class="weight-bold-text">
+          納品締め切り
+          <span class="indispensable">必須</span>
+        </div>
+        <div class='input-birth-wrap'>
+          <%= raw sprintf(
+                  f.date_select(
+                    :deadline,
+                    class:'select-birth',
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: 2020,
+                    end_year: (Time.now.year + 3),
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+        </div>
+      </div>
+    </div>
+    <%# /案件の詳細 %>
+
+    <%# 報酬 %>
+    <div class="sell-price">
+      <div class="weight-bold-text question-text">
+        <span>報酬<br>(¥300〜9,999,999)</span>
+        <a class="question" href="#">?</a>
+      </div>
+      <div>
+        <div class="price-content">
+          <div class="price-text">
+            <span>価格</span>
+            <span class="indispensable">必須</span>
+          </div>
+          <span class="sell-yen">¥</span>
+          <%= f.text_field :award, class:"price-input", placeholder:"例）300", name:'order[award]', id:'order_award'%>
+        </div>
+        <div class="price-content">
+          <span>販売手数料 (10%)</span>
+          <span>
+            <span id='add-tax-price'></span>円
+          </span>
+        </div>
+        <div class="price-content">
+          <span>販売利益</span>
+          <span>
+            <span id='profit'></span>円
+        </div>
+        </span>
+      </div>
+    </div>
+    <%# /販売価格 %>
+
+    <%# 注意書き %>
+    <div class="caution">
+      <p class="sentence">
+        <a href="#">禁止されている出品、</a>
+        <a href="#">行為</a>
+        を必ずご確認ください。
+      </p>
+      <p class="sentence">
+        またブランド品でシリアルナンバー等がある場合はご記載ください。
+        <a href="#">偽ブランドの販売</a>
+        は犯罪であり処罰される可能性があります。
+      </p>
+      <p class="sentence">
+        また、出品をもちまして
+        <a href="#">加盟店規約</a>
+        に同意したことになります。
+      </p>
+    </div>
+    <%# /注意書き %>
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "出品する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+</div>
