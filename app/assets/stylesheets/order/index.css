@@ -1,0 +1,87 @@
+.wrapper{
+  height: 100vh;
+  padding: 30px 10px;
+}
+
+.order-index-title{
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+}
+
+.order-lists{
+  width: 100%;
+}
+
+.order-list{
+  border: 1px solid lightgray;
+  padding: 10px 15px;
+  height: 150px;
+}
+
+.order-upper-content{
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-title{
+  padding: 5px;
+  width: 60%;
+  height: 90px;
+}
+
+.order-list-content{
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
+}
+
+.order-award{
+  padding: 5px;
+  width: 33%;
+  text-align: center;
+  border-left: 1px solid lightgray;
+}
+
+.order-award>p{
+  height: 25px;
+  margin: 0 auto;
+}
+
+.order-apply-number{
+  padding: 5px;
+  width: 33%;
+  text-align: center;
+  border-left: 1px solid lightgray;
+}
+
+.order-apply-number>p{
+  height: 25px;
+  margin: 0 auto;
+}
+
+.order-deadline{
+  padding: 5px;
+  width: 33%;
+  text-align: center;
+  border-left: 1px solid lightgray;
+}
+
+.order-deadline>span{
+  font-size: 30px;
+}
+
+.order-lower-content{
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+}
+
+.order-company-name{
+  padding: 5px;
+}
+
+.order-created-at{
+  padding: 5px;
+}

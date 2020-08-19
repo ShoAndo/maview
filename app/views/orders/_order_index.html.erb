@@ -1,0 +1,23 @@
+<% deadline = (DateTime.now.day - order.last_day.day ).to_i %>
+<div class="order-lists">
+  <div class="order-list">
+    <div class="order-upper-content">
+      <div class="order-title"><%= order.title %></div>
+      <div class="order-list-content">
+        <div class="order-award">
+          <p>報酬</p>
+          <p><%= order.award %>円</p>
+        </div>
+        <div class="order-apply-number">
+        <p>応募</p>
+        <p>3人</p>
+        </div>
+        <div class="order-deadline">あと<span><%= deadline %></span>日</div>
+      </div>
+    </div>
+    <div class="order-lower-content">
+      <div class="order-company-name"><%= order.company.name %></div>
+      <div class="order-created-at">掲載日: <%= order.created_at.strftime('%Y/%m/%d') %></div>
+    </div>
+  </div>
+</div>

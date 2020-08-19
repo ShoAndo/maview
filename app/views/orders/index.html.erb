@@ -3,7 +3,10 @@
 
 
 <div class="wrapper container">
-  <%= render 'order_index'%>
+  <h2 class="order-index-title">最新の案件はこちらです</h2>
+  <% @orders.each do |order| %>
+    <%= render partial: 'order_index', locals: { order: order } %>
+  <% end %>
 </div>
 
  
