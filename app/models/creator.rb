@@ -12,8 +12,9 @@ class Creator < ApplicationRecord
   with_options presence: true do
     validates :first_name, :last_name, format: { with: zenkaku, message: 'は全角で入力してください。' }
     validates :kana_first_name, :kana_last_name, format: { with: kana, message: 'は全角カタカナで入力して下さい。' }
+    validates :prefecture
     validates :birth_date, :prefecture
   end
 
-  validates :prefecture_id, numericality: { other_than: 1 }
+  validates :prefecture_id, numericality: { other_than: 1, message: 'を選択してください' }
 end
