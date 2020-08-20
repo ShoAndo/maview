@@ -2,7 +2,7 @@
 <div class="order-lists">
   <div class="order-list">
     <div class="order-upper-content">
-      <div class="order-title"><%= order.title %></div>
+      <div class="order-title"><%= link_to order.title, order_path(order) %></div>
       <div class="order-list-content">
         <div class="order-award">
           <p>報酬</p>
