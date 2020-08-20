@@ -1,0 +1,27 @@
+ja:
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+  activerecord:
+    models:
+      comapny: 法人
+      creator: クリエイター
+      order: 案件
+    attributes:
+      creator:
+        first_name: 名字
+        last_name: 名前
+        kana_first_name: 名字のカナ
+        kana_last_name: 名前のカナ
+        birth_date: 生年月日
+        prefecture_id: 住んでいる都道府県
+      company:
+        name: 名前
+        prefecture_id: 法人のある都道府県
+      order:
+        title: 案件名
+        content: 案件の詳細
+        award: 報酬
+        last_day: 応募締め切り
+        deadline: 納品締め切り
+        

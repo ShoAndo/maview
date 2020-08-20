@@ -8,7 +8,6 @@ class Creator < ApplicationRecord
 
   zenkaku = /\A[ぁ-んァ-ン一-龥]/
   kana = /\A[ァ-ヶー－]+\z/
-  nick = /\A[a-zぁ-んァ-ン一-龥0-9]{,40}\z/i
 
   with_options presence: true do
     validates :first_name, :last_name, format: { with: zenkaku, message: 'は全角で入力してください。' }
