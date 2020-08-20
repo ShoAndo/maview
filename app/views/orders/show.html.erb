@@ -1,0 +1,27 @@
+<%= render partial: 'shared/header' %>
+
+<div class="order-show">
+  <div class="order-box">
+    <h2 class="order-title"><%= @order.title %></h2>
+    <div class="order-content-box">
+      <p class="order-content"><%= @order.content %></p>
+    </div>
+    <div class="order-award-box">
+      <div class="award-left">報酬</div>
+      <div class="award-right">
+        <span class="order-award"><%= @order.award %></span>
+        <span class="order-postage">円(手数料1割)</span>
+      </div>
+    </div>
+
+    <% if company_signed_in? and current_company.id == @order.company_id %>
+      <%= link_to '案件の編集', edit_order_path(@order), method: :get, class: 'order-red-btn' %>
+      <p class='or-text'>or</p>
+      <%= link_to '削除', order_path(@order), method: :delete, class:'order-destroy' %>
+    <% else %>
+
+    <% end %>
+  </div>
+</div>
+
+<%= render partial: 'shared/footer' %>
