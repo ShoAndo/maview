@@ -31,6 +31,10 @@
   font-size: 24px;
 }
 
+.order-title>.title-link{
+  text-decoration: none;
+}
+
 .order-list-content{
   width: 40%;
   display: flex;
@@ -85,4 +89,8 @@
 
 .order-created-at{
   padding: 5px;
+}
+
+a{
+  text-decoration: none;
 }
