@@ -1,7 +1,7 @@
 <div class="new-order-contents">
   <div class="new-order-main">
     <h2 class="items-sell-title">案件の情報を入力</h2>
-    <%= form_with model: @order, local: true do |f| %>
+    <%= form_with model: @order, url: order_path(@order), local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
 
@@ -95,8 +95,8 @@
 
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "提案する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
+      <%= f.submit "編集する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', order_path(@order), class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
   </div>

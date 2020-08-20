@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :move_to_index, only: :new
-  before_action :find_order, onluy: :show
+  before_action :find_order, only: [:show, :edit, :update, :destroy]
 
   def index
     @orders = Order.all
@@ -20,6 +20,25 @@ class OrdersController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @order.update(order_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @order.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
   end
 
   private

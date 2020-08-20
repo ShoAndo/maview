@@ -131,6 +131,7 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
 .price-content {
@@ -209,7 +210,11 @@
   border: 1px solid #aaa;
   color: #fff;
   padding: 15px 35%;
-  text-decoration: none;
+  text-decoration: none !important;
+}
+
+.back-btn:hover{
+  color: #FFF;
 }
 
 /* /下部ボタン */
