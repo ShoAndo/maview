@@ -1,0 +1,31 @@
+<div class="side-bar-header">
+  <div class="header-name">
+    <a href="/">
+      <% if creator_signed_in? %>
+        <%= current_creator.first_name %><%= current_creator.last_name %>
+      <% else %>
+        <%= current_company.name%>
+      <% end %>
+    </a>
+  </div>
+</div>
+
+<div class="rooms">
+  <% if creator_signed_in? %>
+    <% current_creator.rooms.each do |room| %>
+      <div class="room">
+        <div class="room-name">
+          <%= link_to room.name, order_room_messages_path(room.order_id, room.id) %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <% current_company.rooms.each do |room| %>
+      <div class="room">
+        <div class="room-name">
+          <%= link_to room.name, order_room_messages_path(room.order_id, room.id) %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

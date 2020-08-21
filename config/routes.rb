@@ -10,5 +10,9 @@ Rails.application.routes.draw do
   root 'orders#index'
   resources :creators, only: [:show, :update]
   resources :companies, only: [:show, :update]
-  resources :orders
+  resources :orders do
+    resources :rooms, only: [:index, :new, :create, :destroy] do
+      resources :messages, onlu: [:index, :create]
+    end
+  end
 end
