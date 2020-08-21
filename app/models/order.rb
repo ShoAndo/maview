@@ -1,6 +1,8 @@
 class Order < ApplicationRecord
   belongs_to :company
   has_many :rooms
+  has_one :contract
+  has_one :payment
   with_options presence: true do
     validates :title, length: { maximum: 40 }
     validates :content, length: { maximum: 1000 }

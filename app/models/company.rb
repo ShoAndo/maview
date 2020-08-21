@@ -5,6 +5,7 @@ class Company < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :orders
   has_many :rooms
+  has_many :contract
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
 

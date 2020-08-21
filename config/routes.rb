@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :rooms, only: :index
   resources :orders do
     resources :rooms, only: [:new, :create, :destroy] do
+      resources :payments, only: [:index, :create]
       resources :messages, only: [:index, :create]
     end
   end

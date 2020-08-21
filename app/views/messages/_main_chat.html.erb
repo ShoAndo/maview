@@ -7,7 +7,7 @@
   <div class="right-header">
     <% if company_signed_in? %>
       <div class="header-button">
-        <a href="#">契約する</a>
+        <%= link_to '契約する', order_room_payments_path(@room.order_id, @room.id) %>
       </div>
     <% end %>
     <div class="header-button">
