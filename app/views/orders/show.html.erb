@@ -19,7 +19,7 @@
       <p class='or-text'>or</p>
       <%= link_to '削除', order_path(@order), method: :delete, class:'order-destroy' %>
     <% else %>
-
+      <%= link_to 'メッセージを送る', new_order_room_path(@order), method: :get, class: 'order-red-btn' %>
     <% end %>
   </div>
 </div>

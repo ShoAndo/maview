@@ -5,6 +5,7 @@ class Creator < ApplicationRecord
          :recoverable, :rememberable, :validatable
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
+  has_many :rooms
 
   zenkaku = /\A[ぁ-んァ-ン一-龥]/
   kana = /\A[ァ-ヶー－]+\z/

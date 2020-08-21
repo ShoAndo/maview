@@ -1,0 +1,32 @@
+<div class='chat-room-form'>
+  <h1>新規チャットルームを作成します</h1>
+  <%=form_with model: @room, url: order_rooms_path, local: true do |f|%>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :チャットルーム名, class: 'chat-room-form__label'%>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <%= f.text_field :name, value: @order.title, class: 'chat__room_name chat-room-form__input', placeholder: 'チャットルーム名を入力してください'%>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <label class='chat-room-form__label' for='chat_room_チャットメンバー'>チャットメンバー</label>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <select name="room[company_id]" class="select-member">
+          <option value="<%= @order.company.id %>"><%= @order.company.name %></option>
+        </select>
+        <input name="room[creator_id]" type="hidden" value=<%=current_creator.id%>>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'></div>
+      <div class='chat-room-form__field--right'>
+        <%= f.submit class: 'chat-room-form__action-btn'%>
+      </div>
+    </div>
+  <% end %>
+</div>
