@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :find_order, only: [:new, :create, :destroy]
+  before_action :move_to_index 
 
   def index
   end
@@ -24,6 +25,12 @@ class RoomsController < ApplicationController
   end
 
   private
+
+  def move_to_index
+    unless company_signed_in? or creator_signed_in?
+      redirect_to root_path
+    end
+  end
 
   def find_order
     @order = Order.find(params[:order_id])

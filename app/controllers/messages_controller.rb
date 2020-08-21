@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_action :move_to_index 
   def index
     @message = Message.new
     @room = Room.find(params[:room_id])
@@ -17,6 +18,12 @@ class MessagesController < ApplicationController
   end
 
   private
+
+  def move_to_index
+    unless company_signed_in? or creator_signed_in?
+      redirect_to root_path
+    end
+  end
 
   def message_params
     params.require(:message).permit(:content, :image, :category)
