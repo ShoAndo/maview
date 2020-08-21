@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_21_034733) do
+ActiveRecord::Schema.define(version: 2020_08_21_085205) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -45,6 +45,17 @@ ActiveRecord::Schema.define(version: 2020_08_21_034733) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
+  end
+
+  create_table "contracts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "order_id"
+    t.bigint "creator_id"
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_contracts_on_company_id"
+    t.index ["creator_id"], name: "index_contracts_on_creator_id"
+    t.index ["order_id"], name: "index_contracts_on_order_id"
   end
 
   create_table "creators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -86,6 +97,14 @@ ActiveRecord::Schema.define(version: 2020_08_21_034733) do
     t.index ["company_id"], name: "index_orders_on_company_id"
   end
 
+  create_table "payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "price", null: false
+    t.bigint "order_id", null: false
+    t.index ["order_id"], name: "index_payments_on_order_id"
+  end
+
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -99,8 +118,12 @@ ActiveRecord::Schema.define(version: 2020_08_21_034733) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "contracts", "companies"
+  add_foreign_key "contracts", "creators"
+  add_foreign_key "contracts", "orders"
   add_foreign_key "messages", "rooms"
   add_foreign_key "orders", "companies"
+  add_foreign_key "payments", "orders"
   add_foreign_key "rooms", "companies"
   add_foreign_key "rooms", "creators"
   add_foreign_key "rooms", "orders"
