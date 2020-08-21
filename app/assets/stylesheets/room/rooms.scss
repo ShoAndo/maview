@@ -95,7 +95,11 @@ ul {
 }
 
 .chat-room-user__name a {
-  text-decoration: none;
+  text-decoration: none !important;
+  color: #38aef0;
+}
+
+.chat-room-user__name a:hover{
   color: #38aef0;
 }
 

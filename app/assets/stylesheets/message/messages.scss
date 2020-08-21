@@ -20,7 +20,11 @@
 .header-name a{
   font-size: 28px;
   color: #FAFAFA;
-  text-decoration: none;
+  text-decoration: none !important;
+}
+
+.header-name a:hover{
+  color: white;
 }
 
 .rooms {
@@ -32,10 +36,19 @@
 
 .room {
   padding: 20px 0 40px;
+  border-bottom: 1px solid lightgray;
+}
+
+.room:hover{
+  opacity: 0.7;
 }
 
 .room-name a {
-  text-decoration: none;
+  text-decoration: none !important;
+  color: white;
+}
+
+.room-name a:hover{
   color: white;
 }
 
@@ -68,10 +81,15 @@
 }
 
 .header-button a {
-  text-decoration: none;
+  text-decoration: none !important;
   border: 1px solid darkred;
   color: darkred;
   padding: 20px;
+}
+
+.header-button a:hover{
+  color: darkred;
+  opacity: 0.5;
 }
 
 .messages {
