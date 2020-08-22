@@ -6,7 +6,7 @@
         <h2 class="creator-profile-title">プロフィール</h2>
         <%= link_to '編集する', creator_path(@creator), class:'edit-btn' %>
       </div>
-      <div class="creator-profile-content container">
+      <div class="creator-profile-content ">
         <div class="creator-content-list">
           <div class="creator-name-title">名前</div>
           <div class="creator-name"><%= @creator.first_name %> <%= @creator.last_name %></div>
@@ -25,79 +25,143 @@
         </div>
       </div>
     </div>
-    <div class="creator-profile">
+    <div class="creator-career-profile">
       <div class="creator-profile-header">
         <h2 class="creator-profile-title">経歴</h2>
-        <%= link_to '編集する', class:'edit-btn' %> <!-- リンク未入力 -->
+        <% if @career != nil %>
+          <%= link_to '編集する', edit_creator_career_path(@creator.id, @career.id), class:'edit-btn' %> 
+        <% else %>
+          <%= link_to '編集する', new_creator_career_path(@creator), class:'edit-btn' %>
+        <% end %>
       </div>
-      <div class="creator-profile-content container">
-        <div class="creator-content-list">
+      <div class="creator-profile-content ">
+        <div class="creator-content-category-list">
           <div class="creator-job-category-title">職種</div>
-          <div class="creator-job-category">未入力</div>
+          <div class="creator-job-category">
+          <% if @career.job_category.name != nil %>
+            <%= @career.job_category.name %>
+          <% else %>
+            未入力
+          <% end %>
+          </div>
         </div>
-        <div class="creator-content-list">
-          <div class="creator-job-year-title">職種</div>
-          <div class="creator-job-year">未入力</div>
+        <div class="creator-content-category-list">
+          <div class="creator-job-year-title">経験年数</div>
+          <div class="creator-job-year">
+          <% if @career.year != nil %>
+            <%= @career.year %>
+          <% else %>
+            未入力
+          <% end %>
+          </div>
         </div>
       </div>
     </div>
-    <div class="creator-profile">
+    <div class="creator-portforio-profile">
       <div class="creator-profile-header">
         <h2 class="creator-profile-title">ポートフォリオ</h2>
-        <%= link_to '編集する', class:'edit-btn' %> <!-- リンク未入力 -->
+        <% if @portforio %>
+          <%= link_to '編集する', edit_creator_portforio_path(@creator.id, @portforio.id), class:'edit-btn' %> 
+        <% else %>
+          <%= link_to '編集する', new_creator_portforio_path(@creator), class:'edit-btn' %>
+        <% end %>
       </div>
-      <div class="creator-profile-content container">
+      <div class="creator-profile-content ">
         <div class="creator-content-list">
           <div class="creator-portforio-outline-title">概要</div>
-          <div class="creator-portforio-outline">未入力</div>
+          <% if @portforio %>
+            <div class="creator-portforio-outline"><% if @portforio.outline.present? %><%= @portforio.outline %><% end %></div>
+          <% else %>
+            <div class="creator-portforio-outline">未入力</div>
+          <% end %>
         </div>
         <div class="creator-content-list">
           <div class="creator-portforio-url-title">URL</div>
-          <div class="creator-portforio-url">未入力</div>
+          <% if @portforio %>
+            <div class="creator-portforio-url"><% if @portforio.url.present? %><%= @portforio.url %><% end %></div>
+          <% else %>
+            <div class="creator-portforio-url">未入力</div>
+          <% end %>
         </div>
         <div class="creator-content-list">
           <div class="creator-portforio-detail-title">詳細</div>
-          <div class="creator-portforio-title">未入力</div>
+          <% if @portforio %>
+            <div class="creator-portforio-title"><% if @portforio.detail.present? %><%= @portforio.detail %><% end %></div>
+          <% else %>
+            <div class="creator-portforio-title">未入力</div>
+          <% end %>
         </div>
         <div class="creator-content-list">
           <div class="creator-github-title">github</div>
-          <div class="creator-github">未入力</div>
+          <% if @portforio %>
+            <div class="creator-github"><% if @portforio.github.present? %><%= @portforio.github %><% end %></div>
+          <% else %>
+            <div class="creator-github">未入力</div>
+          <% end %>
         </div>
       </div>
     </div>
     <div class="creator-profile">
       <div class="creator-profile-header">
         <h2 class="creator-profile-title">スキル</h2>
-        <%= link_to '編集する', class:'edit-btn' %> <!-- リンク未入力 -->
+        <% if @skill %>
+          <%= link_to '編集する', edit_creator_skill_path(@creator.id, @skill.id), class:'edit-btn' %> 
+        <% else %>
+          <%= link_to '編集する', new_creator_skill_path(@creator), class:'edit-btn' %>
+        <% end %>
       </div>
-      <div class="creator-profile-content container">
+      <div class="creator-profile-content ">
         <div class="creator-content-list">
           <div class="creator-skill-name-title">スキル</div>
-          <div class="creator-skill-name">未入力</div>
+          <% if @skill %>
+            <div class="creator-skill-name"><% if @skill.name.present? %><%= @skill.name %><% end %></div>
+          <% else %>
+            <div class="creator-skill-name">未入力</div>
+          <% end %>
         </div>
         <div class="creator-content-list">
           <div class="creator-skill-level-title">レベル</div>
-          <div class="creator-skill-level">未入力</div>
+          <% if @skill %>
+            <div class="creator-skill-level"><% if @skill.level.name.present? %><%= @skill.level.name %><% end %></div>
+          <% else %>
+            <div class="creator-skill-level">未入力</div>
+          <% end %>
         </div>
         <div class="creator-content-list">
           <div class="creator-skill-year-title">経験年数</div>
-          <div class="creator-skill-year">未入力</div>
+          <% if @skill %>
+            <div class="creator-skill-year"><% if @skill.name.present? %><%= @skill.year %><% end %></div>
+          <% else %>
+            <div class="creator-skill-year">未入力</div>
+          <% end %>
         </div>
       </div>
     </div>
     <div class="creator-profile">
       <div class="creator-profile-header">
         <h2 class="creator-profile-title">自己PR</h2>
-        <%= link_to '編集する', class:'edit-btn' %> <!-- リンク未入力 -->
+        <% if @introduction %>
+          <%= link_to '編集する', edit_creator_introduction_path(@creator.id, @introduction.id), class:'edit-btn' %> 
+        <% else %>
+          <%= link_to '編集する', new_creator_introduction_path(@creator), class:'edit-btn' %>
+        <% end %>
       </div>
-      <div class="creator-profile-content container">
+      <div class="creator-profile-content ">
         <div class="creator-content-list">
           <div class="creator-minimum-price-title">希望時給</div>
-          <div class="creator-minimum-price">未入力</div>
+          <% if @introduction %>
+            <div class="creator-minimum-price"><% if @introduction.price_per_hour.present? %><%= @introduction.price_per_hour %><% end %></div>
+          <% else %>
+            <div class="creator-minimum-price">未入力</div>
+          <% end %>
         </div>
         <div class="creator-content-list">
           <div class="creator-pr-title">PR</div>
-          <div class="creator-pr">未入力</div>
+          <% if @introduction %>
+            <div class="creator-pr"><% if @introduction.pr_text.present? %><%= @introduction.pr_text %><% end %></div>
+          <% else %>
+            <div class="creator-pr">未入力</div>
+          <% end %>
         </div>
       </div>
     </div>

@@ -16,12 +16,28 @@
 .creator-index{
   display: flex;
   flex-direction: column;
-  height: 200vh;
+  height: 300vh;
   margin: 5vh 0vh;
 }
 
 .creator-profile{
   height: 19%;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin-bottom: 1%;
+  padding: 2% 5%;
+}
+
+.creator-career-profile{
+  height: 10%;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin-bottom: 1%;
+  padding: 2% 5%;
+}
+
+.creator-portforio-profile{
+  height: 28%;
   border: 1px solid lightgray;
   border-radius: 5px;
   margin-bottom: 1%;
@@ -43,6 +59,13 @@
 .creator-content-list{
   font-size: 20px;
   height: 25%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.creator-content-category-list{
+  font-size: 20px;
+  height: 50%;
   display: flex;
   justify-content: space-between;
 }
