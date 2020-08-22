@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :find_order, only: [:show, :edit, :update, :destroy]
 
   def index
-    @orders = Order.all
+    @orders = Order.all.where.not(id: Contract.select('order_id'))
   end
 
   def new
