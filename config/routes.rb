@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     registrations: 'creators/registrations'
   }
   root 'orders#index'
-  resources :creators, only: [:show, :update]
-  resources :companies, only: [:show, :update]
+  resources :creators, only: [:index, :show, :update]
+  resources :companies, only: [:index, :show, :update]
   resources :rooms, only: :index
   resources :orders do
     resources :rooms, only: [:new, :create, :destroy] do

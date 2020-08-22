@@ -1,0 +1,106 @@
+<%= render 'shared/header' %>
+
+  <div class="creator-index container" >
+    <div class="creator-profile">
+      <div class="creator-profile-header">
+        <h2 class="creator-profile-title">プロフィール</h2>
+        <%= link_to '編集する', creator_path(@creator), class:'edit-btn' %>
+      </div>
+      <div class="creator-profile-content container">
+        <div class="creator-content-list">
+          <div class="creator-name-title">名前</div>
+          <div class="creator-name"><%= @creator.first_name %> <%= @creator.last_name %></div>
+        </div>
+        <div class="creator-content-list">
+          <div class="creator-kana-title">フリガナ</div>
+          <div class="creator-kana"><%= @creator.kana_first_name %> <%= @creator.kana_last_name %></div>
+        </div>
+        <div class="creator-content-list">
+          <div class="creator-birth-title">生年月日</div>
+          <div class="creator-birth"><%= @creator.birth_date.strftime('%Y/%m/%d') %></div>
+        </div>
+        <div class="creator-content-list">
+          <div class="creator-prefecture-title">居住地</div>
+          <div class="creator-prefecture"><%= @creator.prefecture.name %></div>
+        </div>
+      </div>
+    </div>
+    <div class="creator-profile">
+      <div class="creator-profile-header">
+        <h2 class="creator-profile-title">経歴</h2>
+        <%= link_to '編集する', class:'edit-btn' %> <!-- リンク未入力 -->
+      </div>
+      <div class="creator-profile-content container">
+        <div class="creator-content-list">
+          <div class="creator-job-category-title">職種</div>
+          <div class="creator-job-category">未入力</div>
+        </div>
+        <div class="creator-content-list">
+          <div class="creator-job-year-title">職種</div>
+          <div class="creator-job-year">未入力</div>
+        </div>
+      </div>
+    </div>
+    <div class="creator-profile">
+      <div class="creator-profile-header">
+        <h2 class="creator-profile-title">ポートフォリオ</h2>
+        <%= link_to '編集する', class:'edit-btn' %> <!-- リンク未入力 -->
+      </div>
+      <div class="creator-profile-content container">
+        <div class="creator-content-list">
+          <div class="creator-portforio-outline-title">概要</div>
+          <div class="creator-portforio-outline">未入力</div>
+        </div>
+        <div class="creator-content-list">
+          <div class="creator-portforio-url-title">URL</div>
+          <div class="creator-portforio-url">未入力</div>
+        </div>
+        <div class="creator-content-list">
+          <div class="creator-portforio-detail-title">詳細</div>
+          <div class="creator-portforio-title">未入力</div>
+        </div>
+        <div class="creator-content-list">
+          <div class="creator-github-title">github</div>
+          <div class="creator-github">未入力</div>
+        </div>
+      </div>
+    </div>
+    <div class="creator-profile">
+      <div class="creator-profile-header">
+        <h2 class="creator-profile-title">スキル</h2>
+        <%= link_to '編集する', class:'edit-btn' %> <!-- リンク未入力 -->
+      </div>
+      <div class="creator-profile-content container">
+        <div class="creator-content-list">
+          <div class="creator-skill-name-title">スキル</div>
+          <div class="creator-skill-name">未入力</div>
+        </div>
+        <div class="creator-content-list">
+          <div class="creator-skill-level-title">レベル</div>
+          <div class="creator-skill-level">未入力</div>
+        </div>
+        <div class="creator-content-list">
+          <div class="creator-skill-year-title">経験年数</div>
+          <div class="creator-skill-year">未入力</div>
+        </div>
+      </div>
+    </div>
+    <div class="creator-profile">
+      <div class="creator-profile-header">
+        <h2 class="creator-profile-title">自己PR</h2>
+        <%= link_to '編集する', class:'edit-btn' %> <!-- リンク未入力 -->
+      </div>
+      <div class="creator-profile-content container">
+        <div class="creator-content-list">
+          <div class="creator-minimum-price-title">希望時給</div>
+          <div class="creator-minimum-price">未入力</div>
+        </div>
+        <div class="creator-content-list">
+          <div class="creator-pr-title">PR</div>
+          <div class="creator-pr">未入力</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%= render 'shared/footer'  %>

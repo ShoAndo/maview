@@ -1,0 +1,48 @@
+*{
+  box-sizing: border-box;
+}
+
+.edit-btn{
+  font-size: 20px;
+  text-decoration: none !important;
+  color: blue;
+}
+
+.edit-btn:hover{
+  color: blue ;
+  opacity: 0.5;
+}
+
+.creator-index{
+  display: flex;
+  flex-direction: column;
+  height: 200vh;
+  margin: 5vh 0vh;
+}
+
+.creator-profile{
+  height: 19%;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin-bottom: 1%;
+  padding: 2% 5%;
+}
+
+.creator-profile-header{
+  height: 32%;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.creator-profile-content{
+  height: 64%;
+}
+
+.creator-content-list{
+  font-size: 20px;
+  height: 25%;
+  display: flex;
+  justify-content: space-between;
+}
