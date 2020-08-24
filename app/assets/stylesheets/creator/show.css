@@ -1,0 +1,119 @@
+*{
+  box-sizing: border-box;
+}
+
+.edit-btn{
+  font-size: 20px;
+  text-decoration: none !important;
+  color: blue;
+}
+
+.edit-btn:hover{
+  color: blue ;
+  opacity: 0.5;
+}
+
+.creator-index{
+  display: flex;
+  flex-direction: column;
+  height: 300vh;
+  margin: 5vh 0vh;
+}
+
+.creator-profile{
+  height: 15%;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin-bottom: 1%;
+  padding: 2% 5%;
+}
+
+.creator-career-profile{
+  height: 10%;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin-bottom: 1%;
+  padding: 2% 5%;
+}
+
+.creator-portforio-profile{
+  height: 37%;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin-bottom: 1%;
+  padding: 2% 5%;
+}
+
+.creator-profile-header{
+  height: 32%;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.creator-profile-content{
+  height: 64%;
+}
+
+.creator-content-list{
+  font-size: 20px;
+  height: 25%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.creator-content-category-list{
+  font-size: 20px;
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.creator-portforio-content-list{
+  font-size: 20px;
+  height: 39%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1%;
+}
+
+.creator-portforio-outline{
+  width: 50%;
+}
+
+.creator-url-content-list{
+  font-size: 20px;
+  height: 9%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1%;
+}
+
+.creator-detail-content-list{
+  font-size: 20px;
+  height: 39%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1%;
+}
+
+.creator-portforio-detail{
+  width: 50%;
+}
+
+.creator-github-content-list{
+  font-size: 20px;
+  height: 9%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1%;
+}
+
+.creator-portforio-a:hover{
+  text-decoration: none;
+}
+
+.creator-pr{
+  width: 50%;
+}

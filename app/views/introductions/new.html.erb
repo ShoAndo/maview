@@ -1,0 +1,24 @@
+<%= render 'shared/header' %>
+
+<div class="introduction-form-content container">
+  <h2 class="introduction-form-title">自己PRの編集</h2>
+  <%= form_with model: @introduction, url: creator_introductions_path(@creator), class: 'introduction-form', local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <div class="introduction-price">
+      <div class="introduction-price-title">希望最低時給</div>
+      <div class='introduction-price-content'>
+        <%= f.text_field :price_per_hour %>円
+      </div>
+    </div>
+
+    <div class="introduction-pr">
+      <div class="introduction-pr-title">自己PR</div>
+      <%= f.text_area :pr_text, class: 'introduction-pr-content', placeholder: '自己PRを記入してください' %>
+    </div>
+    <%= f.submit '保存する', class: 'introduction-btn' %>
+  <% end %>
+</div>
+
+<%= render 'shared/footer' %>

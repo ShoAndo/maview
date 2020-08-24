@@ -1,0 +1,59 @@
+.introduction-form-content{
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  margin: 3%;
+}
+
+.introduction-form-title{
+  height: 18%;
+  font-size: 40px;
+}
+
+.introduction-form{
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+}
+
+.introduction-price{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30%;
+  margin-bottom: 3%;
+  width: 100%;
+}
+
+.introduction-price-title{
+  font-size: 30px;
+}
+
+.introduction-pr{
+  display: flex;
+  justify-content: space-between;
+  height: 70%;
+  width: 100%;
+}
+
+.introduction-pr-title{
+  font-size: 30px;
+}
+
+.introduction-pr-content{
+  width: 40%;
+}
+
+.introduction-btn{
+  height: 30%;
+  width: 20%;
+  background-color: red;
+  color: white;
+  border: none;
+  margin: 3% auto;
+}
+
+.introduction-btn:hover{
+  opacity: 0.6;
+}
+

@@ -7,6 +7,10 @@ class Creator < ApplicationRecord
   belongs_to_active_hash :prefecture
   has_many :rooms
   has_many :contract
+  has_one :career
+  has_one :introduction
+  has_one :portforio
+  has_one :skill
 
   zenkaku = /\A[ぁ-んァ-ン一-龥]/
   kana = /\A[ァ-ヶー－]+\z/

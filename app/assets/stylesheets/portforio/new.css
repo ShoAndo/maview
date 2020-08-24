@@ -1,0 +1,106 @@
+.portforio-form-content{
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 3%;
+}
+
+.portforio-form-title{
+  margin: 3% 0;
+  height: 10%;
+  width: 100%;
+  font-size: 36px;
+}
+
+.portforio-form{
+  height: 84vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.portforio-outline{
+  height: 26%;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 1%;
+}
+
+.portforio-outline-title{
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.portforio-outline-content{
+  width: 50%;
+}
+
+.portforio-url{
+  height: 9%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.portforio-url-title{
+  font-size: 28px;
+}
+
+.portforio-url-content{
+  width: 50%;
+}
+
+.portforio-detail{
+  height: 26%;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 1%;
+}
+
+.portforio-detail-title{
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.portforio-detail-content{
+  width: 50%;
+}
+
+.portforio-github{
+  height: 9%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.portforio-github-title{
+  font-size: 28px;
+}
+
+.portforio-github-content{
+  width: 50%;
+}
+
+.portforio-btn{
+  height: 10%;
+  width: 20%;
+  background-color: red;
+  color: white;
+  border: none;
+  margin: 3% auto;
+}
+
+.portforio-btn:hover{
+  opacity: 0.6;
+}
+
+
+
+
