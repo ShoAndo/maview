@@ -1,0 +1,39 @@
+<%= render 'shared/header' %>
+
+<div class="company-index container">
+  <div class="company-profile container">
+    <div class="company-profile-header">
+      <h2 class="company-profile-title">会社詳細</h2>
+      <%= link_to '編集する', edit_company_path(@company), class: 'edit-btn' %>
+    </div>
+    <div class="company-profile-content container">
+      <div class="company-profile-list">
+        <div class="company-list-title">会社名</div>
+        <div class="company-list-content"><%= @company.name%></div>
+      </div>
+      <div class="company-profile-list">
+        <div class="company-prefecture-title">所在地</div>
+        <div class="company-prefecture-content"><%= @company.prefecture.name %></div>
+      </div>
+    </div>
+  </div>
+  <div class="company-outline">
+    <div class="company-outline-header">
+      <h2 class="company-outline-title">会社概要</div>
+      <% if @outline != nil %>
+        <%= link_to '編集する', edit_company_outline_path(@company, @outline), class: 'edit-btn' %>
+      <% else %>
+        <%= link_to '編集する', new_company_outline_path(@company), class: 'edit-btn' %>
+      <% end %>
+    </div>
+    <div class="company-outline-content">
+      <% if @outline %>
+        <% if @outline.outline.present? %>
+          <%= @outline.outline %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render 'shared/footer'  %>

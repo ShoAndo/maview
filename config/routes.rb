@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     resources :portforios, only: [:new, :create, :edit, :update]
     resources :skills, only: [:new, :create, :edit, :update]
   end
-  resources :companies, only: [:index, :show, :update]
+  resources :companies, only: [:index, :show, :edit, :update] do
+    resources :outlines, only: [:new, :create, :edit, :update]
+  end
   resources :rooms, only: :index
   resources :orders do
     resources :rooms, only: [:new, :create, :destroy] do

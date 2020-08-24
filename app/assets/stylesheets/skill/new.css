@@ -1,0 +1,65 @@
+.skill-form-content{
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  margin: 3%;
+}
+
+.skill-form-title{
+  height: 18%;
+  font-size: 40px;
+}
+
+
+.skill-form{
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.skill-name{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 30%;
+}
+
+.skill-name-title{
+  font-size: 30px;
+}
+
+.skill-level{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 30%;
+}
+
+.skill-level-title{
+  font-size: 30px;
+}
+
+.skill-year{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 30%;
+}
+
+.skill-year-title{
+  font-size: 30px;
+}
+
+.skill-btn{
+  height: 20%;
+  width: 20%;
+  background-color: red;
+  color: white;
+  border: none;
+  margin: 3% auto;
+}
+
+.skill-btn:hover{
+  opacity: 0.6;
+}

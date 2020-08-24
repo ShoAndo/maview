@@ -38,8 +38,8 @@
         <div class="creator-content-category-list">
           <div class="creator-job-category-title">職種</div>
           <div class="creator-job-category">
-          <% if @career.job_category.name != nil %>
-            <%= @career.job_category.name %>
+          <% if @career %>
+            <% if @career.job_category.name.present? %><%= @career.job_category.name %><% end %>
           <% else %>
             未入力
           <% end %>
@@ -48,8 +48,8 @@
         <div class="creator-content-category-list">
           <div class="creator-job-year-title">経験年数</div>
           <div class="creator-job-year">
-          <% if @career.year != nil %>
-            <%= @career.year %>
+          <% if @career %>
+            <% if @career.year.present? %><%= @career.year %><% end %>
           <% else %>
             未入力
           <% end %>
@@ -67,7 +67,7 @@
         <% end %>
       </div>
       <div class="creator-profile-content ">
-        <div class="creator-content-list">
+        <div class="creator-portforio-content-list">
           <div class="creator-portforio-outline-title">概要</div>
           <% if @portforio %>
             <div class="creator-portforio-outline"><% if @portforio.outline.present? %><%= @portforio.outline %><% end %></div>
@@ -75,26 +75,26 @@
             <div class="creator-portforio-outline">未入力</div>
           <% end %>
         </div>
-        <div class="creator-content-list">
+        <div class="creator-url-content-list">
           <div class="creator-portforio-url-title">URL</div>
           <% if @portforio %>
-            <div class="creator-portforio-url"><% if @portforio.url.present? %><%= @portforio.url %><% end %></div>
+            <div class="creator-portforio-url"><% if @portforio.url.present? %><a class="creator-portforio-a" href="<%= @portforio.url %>"><%= @portforio.url %></a><% end %></div>
           <% else %>
             <div class="creator-portforio-url">未入力</div>
           <% end %>
         </div>
-        <div class="creator-content-list">
+        <div class="creator-detail-content-list">
           <div class="creator-portforio-detail-title">詳細</div>
           <% if @portforio %>
-            <div class="creator-portforio-title"><% if @portforio.detail.present? %><%= @portforio.detail %><% end %></div>
+            <div class="creator-portforio-detail"><% if @portforio.detail.present? %><%= @portforio.detail %><% end %></div>
           <% else %>
-            <div class="creator-portforio-title">未入力</div>
+            <div class="creator-portforio-detail">未入力</div>
           <% end %>
         </div>
-        <div class="creator-content-list">
+        <div class="creator-github-content-list">
           <div class="creator-github-title">github</div>
           <% if @portforio %>
-            <div class="creator-github"><% if @portforio.github.present? %><%= @portforio.github %><% end %></div>
+            <div class="creator-github"><% if @portforio.github.present? %><a class="creator-portforio-a" href="<%= @portforio.github %>"><%= @portforio.github %></a><% end %></div>
           <% else %>
             <div class="creator-github">未入力</div>
           <% end %>
@@ -114,7 +114,7 @@
         <div class="creator-content-list">
           <div class="creator-skill-name-title">スキル</div>
           <% if @skill %>
-            <div class="creator-skill-name"><% if @skill.name.present? %><%= @skill.name %><% end %></div>
+            <div class="creator-skill-name"><% if @skill.skill_name.present? %><%= @skill.skill_name %><% end %></div>
           <% else %>
             <div class="creator-skill-name">未入力</div>
           <% end %>
@@ -122,7 +122,7 @@
         <div class="creator-content-list">
           <div class="creator-skill-level-title">レベル</div>
           <% if @skill %>
-            <div class="creator-skill-level"><% if @skill.level.name.present? %><%= @skill.level.name %><% end %></div>
+            <div class="creator-skill-level"><% if @skill.level_id.present? %><%= @skill.level.name %><% end %></div>
           <% else %>
             <div class="creator-skill-level">未入力</div>
           <% end %>
@@ -130,7 +130,7 @@
         <div class="creator-content-list">
           <div class="creator-skill-year-title">経験年数</div>
           <% if @skill %>
-            <div class="creator-skill-year"><% if @skill.name.present? %><%= @skill.year %><% end %></div>
+            <div class="creator-skill-year"><% if @skill.year.present? %><%= @skill.year %><% end %></div>
           <% else %>
             <div class="creator-skill-year">未入力</div>
           <% end %>

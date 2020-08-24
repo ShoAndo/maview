@@ -21,7 +21,7 @@
 }
 
 .creator-profile{
-  height: 19%;
+  height: 15%;
   border: 1px solid lightgray;
   border-radius: 5px;
   margin-bottom: 1%;
@@ -37,7 +37,7 @@
 }
 
 .creator-portforio-profile{
-  height: 28%;
+  height: 37%;
   border: 1px solid lightgray;
   border-radius: 5px;
   margin-bottom: 1%;
@@ -68,4 +68,52 @@
   height: 50%;
   display: flex;
   justify-content: space-between;
+}
+
+.creator-portforio-content-list{
+  font-size: 20px;
+  height: 39%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1%;
+}
+
+.creator-portforio-outline{
+  width: 50%;
+}
+
+.creator-url-content-list{
+  font-size: 20px;
+  height: 9%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1%;
+}
+
+.creator-detail-content-list{
+  font-size: 20px;
+  height: 39%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1%;
+}
+
+.creator-portforio-detail{
+  width: 50%;
+}
+
+.creator-github-content-list{
+  font-size: 20px;
+  height: 9%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1%;
+}
+
+.creator-portforio-a:hover{
+  text-decoration: none;
+}
+
+.creator-pr{
+  width: 50%;
 }

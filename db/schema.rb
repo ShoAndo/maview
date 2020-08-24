@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_22_033627) do
+ActiveRecord::Schema.define(version: 2020_08_24_102303) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -115,6 +115,14 @@ ActiveRecord::Schema.define(version: 2020_08_22_033627) do
     t.index ["company_id"], name: "index_orders_on_company_id"
   end
 
+  create_table "outlines", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "outline"
+    t.bigint "company_id", null: false
+    t.index ["company_id"], name: "index_outlines_on_company_id"
+  end
+
   create_table "payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -164,6 +172,7 @@ ActiveRecord::Schema.define(version: 2020_08_22_033627) do
   add_foreign_key "introductions", "creators"
   add_foreign_key "messages", "rooms"
   add_foreign_key "orders", "companies"
+  add_foreign_key "outlines", "companies"
   add_foreign_key "payments", "orders"
   add_foreign_key "portforios", "creators"
   add_foreign_key "rooms", "companies"

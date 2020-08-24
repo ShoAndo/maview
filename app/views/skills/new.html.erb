@@ -1,0 +1,27 @@
+<%= render 'shared/header' %>
+
+<div class="skill-form-content container">
+  <h2 class="skill-form-title">経歴の編集</h2>
+  <%= form_with model: @skill, url: creator_skills_path(@creator), class: 'skill-form', local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <div class="skill-name">
+      <div class="skill-name-title">スキル</div>
+      <%= f.text_field :skill_name, class: "skill-name-content", autofocus: true %>
+    </div>
+
+    <div class="skill-level">
+      <div class="skill-level-title">レベル</div>
+      <%= f.collection_select( :level_id, Level.all, :id, :name, {class: 'skill-level-content'}) %>
+    </div>
+
+    <div class="skill-year">
+      <div class="skill-year-title">経験年数</div>
+      <%= f.text_field :year, class: 'skill-year-content' %>
+    </div>
+    <%= f.submit '保存する', class: 'skill-btn' %>
+  <% end %>
+</div>
+
+<%= render 'shared/footer' %>

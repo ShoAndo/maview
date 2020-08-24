@@ -1,0 +1,28 @@
+<%= render 'shared/header' %>
+
+<div class="portforio-form-content container">
+  <h2 class="portforio-form-title">経歴の編集</h2>
+  <%= form_with model: @portforio, url: creator_portforios_path(@creator), class: 'portforio-form', local: true do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <div class="portforio-outline">
+      <div class="portforio-outline-title">概要</div>
+      <%= f.text_area :outline, class: 'portforio-outline-content', placeholder: 'ポートフォリオの概要を書いてください' , autofocus: true%>
+    </div>
+    <div class="portforio-url">
+      <div class="portforio-url-title">URL</div>
+      <%= f.text_field :url, class: 'portforio-url-content' %>
+    </div>
+    <div class="portforio-detail">
+      <div class="portforio-detail-title">詳細</div>
+      <%= f.text_area :detail, class: 'portforio-detail-content' %>
+    </div>
+    <div class="portforio-github">
+      <div class="portforio-github-title">Github</div>
+      <%= f.text_field :github, class: 'portforio-github-content' %>
+    </div>
+    <%= f.submit '保存する', class: 'portforio-btn' %>
+  <% end %>
+</div>
+
+<%= render 'shared/footer' %>
