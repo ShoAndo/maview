@@ -1,5 +1,5 @@
 .company-index{
-  height: 80vh;
+  height: 110vh;
   display: flex;
   flex-direction: column;
 }
@@ -25,10 +25,10 @@
 .company-profile-list{
   margin: 0 auto;
   width: 80%;
-  height: 50%;
+  height: 30%;
   display: flex;
   justify-content: space-between;
-  
+  margin-bottom: 1%;
 }
 
 .company-outline{
@@ -41,5 +41,42 @@
   border: 1px solid black;
   width: 80%;
   margin: 0 auto;
-  height: 50%;
+  height: 30%;
+  margin-bottom: 1%;
 }
+
+.company-card-content{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.company-card-header{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin: 3%;
+}
+
+.company-card-info{
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.company-card-num{
+  display: flex;
+  justify-content: space-around;
+  font-size: 30px;
+  margin-bottom: 3%;
+}
+
+.company-card-exp{
+  display: flex;
+  justify-content: space-around;
+  font-size: 30px;
+}
+

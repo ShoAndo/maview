@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
   resources :companies, only: [:index, :show, :edit, :update] do
     resources :outlines, only: [:new, :create, :edit, :update]
+    resources :cards, only: [:new, :create, :edit, :update]
   end
   resources :rooms, only: :index
   resources :orders do

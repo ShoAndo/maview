@@ -9,12 +9,33 @@ class PaymentsController < ApplicationController
   def create
     @contract_payment = ContractPayment.new(payment_params)
 
-    if @contract_payment.valid?
-      pay_item
-      @contract_payment.save
-      return redirect_to root_path
+    if current_company.card.present?
+
+      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+      customer_token = current_company.card.customer_token
+      Payjp::Charge.create(
+        amount: @order.award,
+        customer: customer_token,
+        currency: 'jpy' 
+        )
+
+      if @contract_payment.valid?
+        @contract_payment.save
+        return redirect_to root_path
+      else
+        render :index
+      end
+
     else
-      render :index
+
+      if @contract_payment.valid?
+        pay_item
+        @contract_payment.save
+        return redirect_to root_path
+      else
+        render :index
+      end
+
     end
   end
 
