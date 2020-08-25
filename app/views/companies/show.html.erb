@@ -33,6 +33,28 @@
         <% end %>
       <% end %>
     </div>
+    <div class="company-card-content">
+      <div class="company-card-header">
+        <h2 class="company-card-header-title">カード情報</h2>
+          <% if @card != nil %>
+            <%= link_to '編集する', edit_company_card_path(@company, @card), class: 'edit-btn' %>
+          <% else %>
+            <%= link_to '編集する', new_company_card_path(@company), class: 'edit-btn' %>
+          <% end %>
+      </div>
+      <div class="company-card-info">
+        <% if @card.present? %>
+          <div class="company-card-num">
+            <div class="company-card-num-title">カード番号:</div>
+            <div class="company-card-num-content"><%= "**** **** ****" + @card[:last4] %></div>
+          </div>
+          <div class="company-card-exp">
+            <div class="company-card-exp-title">有効期限: </div> 
+            <div class="company-card-exp-content"><%=  @card[:exp_month] %>/<%= @card[:exp_year] %></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 

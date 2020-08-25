@@ -7,6 +7,7 @@ class Company < ApplicationRecord
   has_many :rooms
   has_many :contract
   has_one :outline
+  has_one :card, dependent: :destroy
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
 

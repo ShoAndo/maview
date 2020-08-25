@@ -1,0 +1,11 @@
+<%= render 'shared/header' %>
+
+<div class="outline-form-content container">
+  <div class="outline-form-title">概要</div>
+  <%= form_with model: @outline, url: company_outlines_path(@company), class: 'outline-form', local: true do |f| %>
+    <%= f.text_area :outline, class: 'outline-form-outline' %>
+    <%= f.submit '保存する', class: 'outline-btn' %>
+  <% end %>
+</div>
+
+<%= render 'shared/footer' %>

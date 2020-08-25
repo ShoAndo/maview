@@ -7,6 +7,18 @@ class CompaniesController < ApplicationController
     else
       return
     end
+
+    if Card.find_by(company_id: @company.id)
+      @card = Card.find_by(company_id: @company.id)
+    else
+      return
+    end
+
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    card = Card.find_by(company_id: @company.id)
+
+    customer = Payjp::Customer.retrieve(card.customer_token)
+    @card = customer.cards.first
   end
 
   def edit
