@@ -109,13 +109,13 @@
 /* /商品名と商品説明 */
 
 /* 商品の詳細など */
-.order-detail {
+.new-order-detail {
   display: flex;
   justify-content: space-between;
   padding: 2vh 0;
 }
 
-.items-detail>.form {
+.items-detail>.new-form {
   width: 300px;
   padding: 2vh 0;
 }
