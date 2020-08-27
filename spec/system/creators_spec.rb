@@ -68,3 +68,49 @@ RSpec.describe "Creators", type: :system do
     end
   end
 end
+
+RSpec.describe 'ログイン', type: :system do
+  before do
+    @creator = FactoryBot.create(:creator)
+  end
+
+  context 'ログインできる時' do
+    it '保存している情報と一致すればログインできる' do
+      #トップページに遷移する
+      visit root_path
+      #ログインボタンがあることを確かめる
+      expect(page).to have_content 'クリエイターでログイン'
+      #ログインページに遷移する
+      visit new_creator_session_path
+      #ユーザー情報を入力する
+      fill_in 'creator[email]', with: @creator.email
+      fill_in 'creator[password]', with: @creator.password
+      #ログインボタンを押す
+      find('input[name="commit"]').click
+      #トップページに遷移する
+      expect(current_path).to eq root_path
+      #ログインボタンと新規登録ボタンがないことを確かめる
+      expect(page).to have_content 'ログアウト'
+      expect(page).to have_no_content 'クリエイターでログイン'
+      expect(page).to have_no_content 'クリエイター新規登録'
+    end
+  end
+
+  context 'ログインできない時' do
+    it '入力が正しくない時' do 
+      #トップページに遷移する
+      visit root_path
+      #ログインボタンがあることを確かめる
+      expect(page).to have_content 'クリエイターでログイン'
+      #ログインページに遷移する
+      visit new_creator_session_path
+      #ユーザー情報を誤って入力する
+      fill_in 'creator[email]', with: ''
+      fill_in 'creator[password]', with: ''
+      #ログインボタンを押す
+      find('input[name="commit"]').click
+      #ログインページに戻される
+      expect(current_path).to eq new_creator_session_path
+    end
+  end
+end
