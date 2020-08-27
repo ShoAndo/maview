@@ -7,7 +7,7 @@ FactoryBot.define do
     last_name             { '名前' }
     kana_first_name       { 'ミョウジ' }
     kana_last_name        { 'ナマエ' }
-    birth_date            { Faker::Date.between(from: '1990-01-01', to: '2020-08-03') }
+    birth_date            { Faker::Date.between(from: '1990-01-01', to: '2000-08-03') }
     prefecture_id         { 14 }
   end
 end
