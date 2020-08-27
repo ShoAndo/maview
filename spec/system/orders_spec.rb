@@ -48,12 +48,31 @@ RSpec.describe "案件投稿", type: :system do
   end
 end
 
-RSpec.describe '案件の編集' do
+RSpec.describe '案件の編集', type: :system do
   before do
     @order1 = FactoryBot.create(:order)
     @order2 = FactoryBot.create(:order)
+  end
   context '編集できる' do
     it '投稿したユーザーは編集できる' do
+      #order1を投稿したCompanyでログインする
+      visit new_company_session_path
+      fill_in 'company[email]', with: @order1.company.email
+      fill_in 'company[password]', with: @order1.company.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq root_path
+      #投稿した案件の詳細リンクがある
+      expect(
+        all('.order-list')[1]
+      ).to have_link @order1.title, href: order_path(@order1)
+      #詳細ページをクリック
+      visit order_path(@order1)
+      #編集ボタンがある
+      expect('.order-red-btn').to have_link '案件の編集', href: edit_order_path(@order1)
+      #編集ページに遷移
+      visit edit_order_path(@order1)
+      
+
     end
   end
 
