@@ -29,9 +29,13 @@ class PaymentsController < ApplicationController
     else
 
       if @contract_payment.valid?
-        pay_item
-        @contract_payment.save
-        return redirect_to root_path
+        if params[:token] 
+          pay_item
+          @contract_payment.save
+          return redirect_to root_path
+        else
+          render :index
+        end
       else
         render :index
       end
