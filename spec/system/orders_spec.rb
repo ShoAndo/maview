@@ -68,16 +68,105 @@ RSpec.describe '案件の編集', type: :system do
       #詳細ページをクリック
       visit order_path(@order1)
       #編集ボタンがある
-      expect('.order-red-btn').to have_link '案件の編集', href: edit_order_path(@order1)
+      expect(page).to have_content '案件の編集'
       #編集ページに遷移
       visit edit_order_path(@order1)
-      
-
+      #編集
+      fill_in 'order[title]', with: '編集'
+      fill_in 'order[content]', with: '編集編集'
+      #保存ボタンを押してもモデルのカウントは変わらない
+      expect{
+        find('input[name="commit"]').click
+      }.to change { Order.count }.by(0)
+      #トップページに遷移
+      expect(current_path).to eq root_path
+      #編集が適応されている
+      expect(
+        all('.order-list')[1]
+      ).to have_link '編集', href: order_path(@order1)
     end
   end
 
   context '編集できない' do
     it '投稿したユーザー出ないと編集できない' do
+      #トップページに遷移
+      visit root_path
+      #投稿した案件の詳細リンクがある
+      expect(
+        all('.order-list')[1]
+      ).to have_link @order1.title, href: order_path(@order1)
+      #詳細ページをクリック
+      visit order_path(@order1)
+      #編集ボタンがない
+      expect(page).to have_no_content '案件の編集'
+    end
+  end
+end
+
+RSpec.describe '削除機能' do
+  before do
+    @order1 = FactoryBot.create(:order)
+    @order2 = FactoryBot.create(:order)
+  end
+
+  context '削除できる' do
+    it 'ログインしたユーザーは削除できる' do
+      #order1を投稿したCompanyでログインする
+      visit new_company_session_path
+      fill_in 'company[email]', with: @order1.company.email
+      fill_in 'company[password]', with: @order1.company.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq root_path
+      #投稿した案件の詳細リンクがある
+      expect(
+        all('.order-list')[1]
+      ).to have_link @order1.title, href: order_path(@order1)
+      #詳細ページをクリック
+      visit order_path(@order1)
+      #削除ボタンがある
+      expect(page).to have_content '削除'
+      #削除ボタンをすとカウントがへる
+      expect{
+        find_link( '削除', href: order_path(@order1)).click
+      }.to change { Order.count }.by(-1)
+      #トップページにいる
+      expect(current_path).to eq root_path
+      #削除した案件はページにない
+      expect(
+        all('.order-list')
+      ).to have_no_link @order1.title, href: order_path(@order1)
+    end
+  end
+
+  context '削除できない' do
+    it '投稿していないユーザーは削除できない' do
+      #order1を投稿したCompanyでログインする
+      visit new_company_session_path
+      fill_in 'company[email]', with: @order1.company.email
+      fill_in 'company[password]', with: @order1.company.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq root_path
+      #投稿した案件の詳細リンクがある
+      expect(
+        all('.order-list')[0]
+      ).to have_link @order2.title, href: order_path(@order2)
+      #詳細ページをクリック
+      visit order_path(@order2)
+      #削除ボタンがない
+      expect(page).to have_no_content '削除'
+    end
+
+    it 'ログインしていないユーザーは削除できない' do
+      #トップページに遷移
+      visit root_path
+      #投稿した案件の詳細リンクがある
+      expect(
+        all('.order-list')[0]
+      ).to have_link @order2.title, href: order_path(@order2)
+      #詳細ページをクリック
+      visit order_path(@order2)
+      #削除ボタンがない
+      expect(page).to have_no_content '削除'
     end
   end
 end
