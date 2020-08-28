@@ -12,7 +12,6 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to order_room_messages_path(@room.order_id, @room.id)
     else
-      @messages = @room.messages
       render :index
     end
   end
