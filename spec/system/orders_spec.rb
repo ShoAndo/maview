@@ -9,10 +9,7 @@ RSpec.describe "案件投稿", type: :system do
   context '案件を投稿できる' do
     it '正しく入力すると投稿できる' do
       #ログインする
-      visit new_company_session_path
-      fill_in 'company[email]', with: @company.email
-      fill_in 'company[password]', with: @company.password
-      find('input[name="commit"]').click
+      sign_in(@company)
       #投稿ページがあることを確認
       expect(page).to have_content '案件を提案する'
       #投稿ページに移動する
@@ -56,11 +53,7 @@ RSpec.describe '案件の編集', type: :system do
   context '編集できる' do
     it '投稿したユーザーは編集できる' do
       #order1を投稿したCompanyでログインする
-      visit new_company_session_path
-      fill_in 'company[email]', with: @order1.company.email
-      fill_in 'company[password]', with: @order1.company.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq root_path
+      sign_in(@order1.company)
       #投稿した案件の詳細リンクがある
       expect(
         all('.order-list')[1]
@@ -112,11 +105,7 @@ RSpec.describe '削除機能' do
   context '削除できる' do
     it 'ログインしたユーザーは削除できる' do
       #order1を投稿したCompanyでログインする
-      visit new_company_session_path
-      fill_in 'company[email]', with: @order1.company.email
-      fill_in 'company[password]', with: @order1.company.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq root_path
+      sign_in(@order1.company)
       #投稿した案件の詳細リンクがある
       expect(
         all('.order-list')[1]
@@ -141,11 +130,7 @@ RSpec.describe '削除機能' do
   context '削除できない' do
     it '投稿していないユーザーは削除できない' do
       #order1を投稿したCompanyでログインする
-      visit new_company_session_path
-      fill_in 'company[email]', with: @order1.company.email
-      fill_in 'company[password]', with: @order1.company.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq root_path
+      sign_in(@order1.company)
       #投稿した案件の詳細リンクがある
       expect(
         all('.order-list')[0]
