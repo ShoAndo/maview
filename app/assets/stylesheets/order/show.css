@@ -17,10 +17,15 @@
   align-items: center;
 }
 
-.order-box>.title{
-  text-align: center;
+.order-title-top{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.order-title{
   font-weight: bold;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .order-content{

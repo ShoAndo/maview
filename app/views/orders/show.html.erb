@@ -2,7 +2,10 @@
 
 <div class="order-show">
   <div class="order-box">
-    <h2 class="order-title"><%= @order.title %></h2>
+    <div class="order-title-top">
+      <h2 class="order-title"><%= @order.title %></h2>
+      カテゴリー：<%= @order.job_category.name %>
+    </div>
     <div class="order-content-box">
       <p class="order-content"><%= @order.content %></p>
     </div>

@@ -3,10 +3,14 @@ class Order < ApplicationRecord
   has_many :rooms
   has_one :contract
   has_one :payment
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :job_category
+
   with_options presence: true do
     validates :title, length: { maximum: 40 }
     validates :content, length: { maximum: 1000 }
-    validates :last_day
+    validates :last_day, :job_category
+    validates :job_category_id, numericality: { other_than: 1 }
     validates :award, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999,
                                       message: 'が可能な範囲を超えています' }
   end

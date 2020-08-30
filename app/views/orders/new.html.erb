@@ -58,6 +58,14 @@
                     date_separator: '%s'),
                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
         </div>
+        <div class="weight-bold-text">
+          カテゴリー
+          <span class="indispensable">必須</span>
+        </div>
+        <div class='input-birth-wrap'>
+          <%= f.collection_select(:job_category_id, JobCategory.all, :id, :name) %>
+        </div>
+        <br>
       </div>
     </div>
     <%# /案件の詳細 %>

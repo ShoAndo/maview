@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:title, :content, :last_day, :deadline, :award).merge(company_id: current_company.id)
+    params.require(:order).permit(:title, :content, :last_day, :deadline, :award, :job_category_id).merge(company_id: current_company.id)
   end
 
   def find_order
