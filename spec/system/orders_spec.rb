@@ -23,6 +23,7 @@ RSpec.describe "案件投稿", type: :system do
       find('select[name="order[deadline(1i)]"]').find("option[value='#{@order.deadline.year}']").select_option
       find('select[name="order[deadline(2i)]"]').find("option[value='#{@order.deadline.mon}']").select_option
       find('select[name="order[deadline(3i)]"]').find("option[value='#{@order.deadline.mday}']").select_option
+      find('select[name="order[job_category_id]"]').find("option[value='#{@order.job_category_id}']").select_option
       fill_in 'order[award]', with: @order.award
       #投稿するとOrderモデルのカウントが1上がる
       expect{

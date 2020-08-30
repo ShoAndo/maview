@@ -42,6 +42,12 @@ RSpec.describe Order, type: :model do
         @order.valid?
         expect(@order.errors[:last_day]).to include(I18n.t('errors.messages.blank'))
       end
+
+      it 'カテゴリーが1だと登録できない' do
+        @order.job_category_id = 1
+        @order.valid?
+        expect(@order.errors.full_messages.join).to include(I18n.t('errors.messages.other_than',count: 1))
+      end
     end
   end
 end

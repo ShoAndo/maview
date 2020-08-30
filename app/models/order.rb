@@ -10,8 +10,8 @@ class Order < ApplicationRecord
     validates :title, length: { maximum: 40 }
     validates :content, length: { maximum: 1000 }
     validates :last_day, :job_category
-    validates :job_category_id, numericality: { other_than: 1 }
     validates :award, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999,
                                       message: 'が可能な範囲を超えています' }
   end
+  validates :job_category_id, numericality: { other_than: 1 }
 end
