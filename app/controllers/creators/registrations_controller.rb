@@ -10,9 +10,14 @@ class Creators::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    if params[:sns_auth] == 'true'
+      pass = Devise.friendly_token
+      params[:creator][:password] = pass
+      params[:creator][:password_confirmation] = pass
+    end
+    super
+  end
 
   # GET /resource/edit
   # def edit

@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   devise_for :companies, controllers: {
     sessions:      'companies/sessions',
-    registrations: 'companies/registrations'
+    registrations: 'companies/registrations',
   }
   devise_for :creators, controllers: {
     sessions:      'creators/sessions',
-    registrations: 'creators/registrations'
+    registrations: 'creators/registrations',
+    omniauth_callbacks: 'creators/omniauth_callbacks'
   }
   root 'orders#index'
   resources :creators, only: [:index, :edit, :show, :update] do

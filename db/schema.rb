@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_30_091959) do
+ActiveRecord::Schema.define(version: 2020_08_31_080947) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -174,6 +174,15 @@ ActiveRecord::Schema.define(version: 2020_08_30_091959) do
     t.index ["creator_id"], name: "index_skills_on_creator_id"
   end
 
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "provider"
+    t.string "uid"
+    t.bigint "creator_id"
+    t.index ["creator_id"], name: "index_sns_credentials_on_creator_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cards", "companies"
   add_foreign_key "careers", "creators"
@@ -190,4 +199,5 @@ ActiveRecord::Schema.define(version: 2020_08_30_091959) do
   add_foreign_key "rooms", "creators"
   add_foreign_key "rooms", "orders"
   add_foreign_key "skills", "creators"
+  add_foreign_key "sns_credentials", "creators"
 end
