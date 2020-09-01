@@ -14,4 +14,12 @@ class Order < ApplicationRecord
                                       message: 'が可能な範囲を超えています' }
   end
   validates :job_category_id, numericality: { other_than: 1 }
+
+  def self.search(search)
+    if search != ''
+      Order.where('title LIKE(?)', "%#{search}%").where.not(id: Contract.select('order_id')).order('created_at DESC')
+    else
+      Order.includes(:company).where.not(id: Contract.select('order_id')).order('created_at DESC')
+    end
+  end
 end

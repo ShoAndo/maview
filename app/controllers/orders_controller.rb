@@ -1,9 +1,14 @@
 class OrdersController < ApplicationController
-  before_action :move_to_index, only: :new
+  before_action :move_to_index, except: [:index, :show, :search]
   before_action :find_order, only: [:show, :edit, :update, :destroy]
 
   def index
-    @orders = Order.includes(:company).where.not(id: Contract.select('order_id')).order('created_at DESC')
+    if params[:job_category_id]
+      @orders = Order.includes(:company).where(job_category_id: params[:job_category_id]).where.not(id: Contract.select('order_id')).order('created_at DESC')
+      @job_category = JobCategory.find(params[:job_category_id]).name
+    else
+      @orders = Order.includes(:company).where.not(id: Contract.select('order_id')).order('created_at DESC')
+    end
   end
 
   def new
@@ -39,6 +44,10 @@ class OrdersController < ApplicationController
     else
       render :show
     end
+  end
+
+  def search
+    @orders = Order.search(params[:keyword])
   end
 
   private
