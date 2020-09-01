@@ -1,5 +1,5 @@
 .company-index{
-  height: 110vh;
+  min-height: 110vh;
   display: flex;
   flex-direction: column;
 }
@@ -12,6 +12,14 @@
 
 .company-profile-content{
   height: 40%;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 1%;
+}
+
+.company-profile{
+  width: 80%;
+  margin: 0 auto;
 }
 
 .company-list-title{
@@ -38,10 +46,12 @@
 }
 
 .company-outline-content{
-  border: 1px solid black;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 1%;
   width: 80%;
   margin: 0 auto;
-  height: 30%;
+  min-height: 30vh;
   margin-bottom: 1%;
 }
 
@@ -49,6 +59,7 @@
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+  margin-bottom: 2vh;
 }
 
 .company-card-header{
@@ -65,20 +76,39 @@
   height: 80%;
   justify-content: center;
   flex-direction: column;
-  border: 1px solid black;
+  border: 1px solid lightgray;
+  border-radius: 5px;
   padding: 1% 1%;
 }
 
 .company-card-num{
   display: flex;
   justify-content: space-around;
-  font-size: 30px;
+  font-size: 20px;
   margin-bottom: 3%;
 }
 
 .company-card-exp{
   display: flex;
   justify-content: space-around;
-  font-size: 30px;
+  font-size: 20px;
 }
 
+.company-history-content{
+  margin: 2vh auto;
+  width: 80%;
+  min-height: 20vh;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 2% 5%;
+}
+
+.company-history-title{
+  margin-bottom: 2vh;
+}
+
+.company-history-list{
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}

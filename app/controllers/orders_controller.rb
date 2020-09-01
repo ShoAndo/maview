@@ -4,10 +4,10 @@ class OrdersController < ApplicationController
 
   def index
     if params[:job_category_id]
-      @orders = Order.includes(:company).where(job_category_id: params[:job_category_id]).where.not(id: Contract.select('order_id')).order('created_at DESC')
+      @orders = Order.includes(:company).where(job_category_id: params[:job_category_id]).where.not(id: Contract.select('order_id')).order('created_at DESC').limit(10)
       @job_category = JobCategory.find(params[:job_category_id]).name
     else
-      @orders = Order.includes(:company).where.not(id: Contract.select('order_id')).order('created_at DESC')
+      @orders = Order.includes(:company).where.not(id: Contract.select('order_id')).order('created_at DESC').limit(10)
     end
   end
 

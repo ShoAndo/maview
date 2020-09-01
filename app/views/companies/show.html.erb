@@ -1,7 +1,7 @@
 <%= render 'shared/header' %>
 
 <div class="company-index container">
-  <div class="company-profile container">
+  <div class="company-profile">
     <div class="company-profile-header">
       <h2 class="company-profile-title">会社詳細</h2>
       <%= link_to '編集する', edit_company_path(@company), class: 'edit-btn' %>
@@ -54,6 +54,22 @@
           </div>
         <% else %>
           <p style="color: lightgray">カードが登録されていません</p>
+        <% end %>
+      </div>
+    </div>
+    <div class="company-history-content">
+      <div class="company-history-header">
+        <h2 class="company-history-title">発注履歴</h2>
+      </div>
+      <div class="company-history-lists">
+        <% @contracts.each do |contract| %>
+          <div class="company-history-list">
+            <div class="company-history-title"><%= contract.order.title %></div>
+            <div class="company-history-list-content">
+              <%= contract.order.content[0, 10] %>...
+              <%= link_to '続きを見る', order_path(contract.order.id), class: 'creator-score-list-content-next' %>
+            </div>
+          </div>
         <% end %>
       </div>
     </div>

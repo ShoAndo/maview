@@ -13,7 +13,7 @@ class CompaniesController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_token)
       @card = customer.cards.first
     end
-
+    @contracts = Contract.includes(:creator).includes(:order).where(company_id: @company.id)
   end
 
   def edit
