@@ -52,6 +52,8 @@
             <div class="company-card-exp-title">有効期限: </div> 
             <div class="company-card-exp-content"><%=  @card[:exp_month] %>/<%= @card[:exp_year] %></div>
           </div>
+        <% else %>
+          <p style="color: lightgray">カードが登録されていません</p>
         <% end %>
       </div>
     </div>
