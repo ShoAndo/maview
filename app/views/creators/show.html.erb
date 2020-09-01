@@ -72,7 +72,7 @@
           <% if @portforio %>
             <div class="creator-portforio-outline"><% if @portforio.outline.present? %><%= @portforio.outline %><% end %></div>
           <% else %>
-            <div class="creator-portforio-outline">未入力</div>
+            <div class="creator-portforio-outline"></div>
           <% end %>
         </div>
         <div class="creator-url-content-list">
@@ -88,7 +88,7 @@
           <% if @portforio %>
             <div class="creator-portforio-detail"><% if @portforio.detail.present? %><%= @portforio.detail %><% end %></div>
           <% else %>
-            <div class="creator-portforio-detail">未入力</div>
+            <div class="creator-portforio-detail"></div>
           <% end %>
         </div>
         <div class="creator-github-content-list">
@@ -160,9 +160,25 @@
           <% if @introduction %>
             <div class="creator-pr"><% if @introduction.pr_text.present? %><%= @introduction.pr_text %><% end %></div>
           <% else %>
-            <div class="creator-pr">未入力</div>
+            <div class="creator-pr"></div>
           <% end %>
         </div>
+      </div>
+    </div>
+    <div class="creator-score-content">
+      <div class="creator-score-header">
+          <h2 class="creator-score-title">これまでの実績</h2>
+      </div>
+      <div class="creator-score-lists">
+        <% @contracts.each do |contract| %>
+          <div class="creator-score-list">
+            <div class="creator-score-list-title">タイトル:  <%= contract.order.title %></div>
+            <div class="creator-score-list-content">
+              <%= contract.order.content[0, 10] %>...
+              <%= link_to '続きを見る', order_path(contract.order.id), class: 'creator-score-list-content-next' %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

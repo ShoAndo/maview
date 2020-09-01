@@ -1,3 +1,5 @@
+<%= render 'shared/header' %>
+
 <%= form_with model: @company, url: company_session_path, class: 'registration-main', local: true do |f| %>
 <div class='form-wrap'>
   <div class='form-header'>
@@ -28,3 +30,5 @@
   </div>
 </div>
 <% end %>
+
+<%= render 'shared/footer' %>
