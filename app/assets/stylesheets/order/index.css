@@ -1,12 +1,13 @@
 .main-wrapper{
-  height: 100vh;
-  padding: 30px 10px;
+  min-height: 100vh;
+  padding: 3vh 1vh;
 }
 
 .order-index-title{
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 40px;
+  height: 10vh;
 }
 
 .order-lists{
@@ -15,8 +16,9 @@
 
 .order-list{
   border: 1px solid lightgray;
-  padding: 10px 15px;
-  height: 150px;
+  padding: 1vh 1.5vh;
+  height: 20vh;
+  margin-bottom: 1vh;
 }
 
 .order-upper-content{
@@ -27,7 +29,7 @@
 .order-title{
   padding: 5px;
   width: 60%;
-  height: 90px;
+  height: 12vh;
   font-size: 24px;
 }
 
@@ -39,35 +41,35 @@
   width: 40%;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 30px;
+  padding-bottom: 5vh;
 }
 
 .order-award{
-  padding: 5px;
+  padding: 0.6vh;
   width: 33%;
   text-align: center;
   border-left: 1px solid lightgray;
 }
 
 .order-award>p{
-  height: 25px;
+  height: 4vh;
   margin: 0 auto;
 }
 
 .order-apply-number{
-  padding: 5px;
+  padding: 0.6vh;
   width: 33%;
   text-align: center;
   border-left: 1px solid lightgray;
 }
 
 .order-apply-number>p{
-  height: 25px;
+  height: 4vh;
   margin: 0 auto;
 }
 
 .order-deadline{
-  padding: 5px;
+  padding: 0.6vh;
   width: 33%;
   text-align: center;
   border-left: 1px solid lightgray;
@@ -80,15 +82,15 @@
 .order-lower-content{
   display: flex;
   justify-content: space-between;
-  height: 40px;
+  height: 1vh;
 }
 
 .order-company-name{
-  padding: 5px;
+  padding: 0.5vh;
 }
 
 .order-created-at{
-  padding: 5px;
+  padding: 0.5px;
 }
 
 a{

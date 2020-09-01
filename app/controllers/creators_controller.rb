@@ -18,6 +18,8 @@ class CreatorsController < ApplicationController
     if Introduction.find_by(creator_id: @creator.id)
       @introduction = Introduction.find_by(creator_id: @creator.id)
     end
+
+    @contracts = Contract.includes(:creator).includes(:order).where(creator_id: @creator.id)
   end
 
   def edit

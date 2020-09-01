@@ -1,4 +1,4 @@
-<% deadline = (DateTime.now.day - order.last_day.day ).to_i %>
+<% deadline = ( order.last_day.day - DateTime.now.day ).to_i %>
 <div class="order-lists">
   <div class="order-list">
     <div class="order-upper-content">

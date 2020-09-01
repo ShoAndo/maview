@@ -16,7 +16,7 @@
 .creator-index{
   display: flex;
   flex-direction: column;
-  height: 300vh;
+  min-height: 200vh;
   margin: 5vh 0vh;
 }
 
@@ -116,4 +116,31 @@
 
 .creator-pr{
   width: 50%;
+}
+
+.creator-score-content{
+  min-height: 20vh;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 2% 5%;
+}
+
+.creator-score-title{
+  margin-bottom: 2vh;
+}
+
+.creator-score-list{
+  display: flex;
+  justify-content: space-between;
+  min-height: 5vh;
+  font-size: 20px;
+  margin-bottom: 1vh;
+}
+
+.creator-score-list-content{
+  width: 40%;
+}
+
+.creator-score-list-content-next:hover{
+  text-decoration: none;
 }
