@@ -12,7 +12,7 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     if @room.save
-      redirect_to order_room_messages_path(order_id: @order.id, room_id: @room.id)
+      redirect_to new_order_room_message_path(order_id: @order.id, room_id: @room.id)
     else
       render :new
     end

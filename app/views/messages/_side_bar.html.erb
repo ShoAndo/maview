@@ -15,7 +15,7 @@
     <% current_creator.rooms.each do |room| %>
       <div class="room">
         <div class="room-name">
-          <%= link_to room.name, order_room_messages_path(room.order_id, room.id) %>
+          <%= link_to room.name, new_order_room_message_path(room.order_id, room.id) %>
         </div>
       </div>
     <% end %>
@@ -23,7 +23,7 @@
     <% current_company.rooms.each do |room| %>
       <div class="room">
         <div class="room-name">
-          <%= link_to room.name, order_room_messages_path(room.order_id, room.id) %>
+          <%= link_to room.name, new_order_room_message_path(room.order_id, room.id) %>
         </div>
       </div>
     <% end %>

@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   resources :orders do
     resources :rooms, only: [:new, :create, :destroy] do
       resources :payments, only: [:index, :create]
-      resources :messages, only: [:index, :create]
+      resources :messages, only: [:new, :create]
     end
     collection do
       get 'search'
