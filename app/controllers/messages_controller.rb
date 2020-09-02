@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   before_action :move_to_index 
-  def index
+
+  def new
     @message = Message.new
     @room = Room.find(params[:room_id])
     @messages = @room.messages
@@ -9,10 +10,27 @@ class MessagesController < ApplicationController
   def create
     @room = Room.find(params[:room_id])
     @message = @room.messages.new(message_params)
-    if @message.save
-      redirect_to order_room_messages_path(@room.order_id, @room.id)
+    if params[:message][:image] != nil 
+      if @message.save
+        redirect_to new_order_room_message_path(@room.order_id, @room.id) and return
+      else
+        render :new and return
+      end
+    elsif params[:message][:content] == ''
+      redirect_to new_order_room_message_path(@room.order_id, @room.id) and return
     else
-      render :index
+      if @message.save
+        date = @message.created_at.strftime("%Y/%m/%d %H:%M:%S")
+
+        if @message.category == 'creator'
+          profile = { 'first_name': @message.room.creator.first_name, 'last_name': @message.room.creator.last_name , 'date': date }
+        else
+          profile = { 'name': @message.room.company.name, 'date': date }
+        end
+        ActionCable.server.broadcast 'message_channel', content: @message, profile: profile
+      else
+        render :new and return
+      end
     end
   end
 

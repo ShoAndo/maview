@@ -29,7 +29,7 @@ RSpec.describe "Messages", type: :system do
         find('input[name="commit"]').click
       }.to change { Message.count }.by(1)
       #投稿一覧画面にいる
-      expect(current_path).to eq order_room_messages_path(@order, @room)
+      expect(current_path).to eq new_order_room_message_path(@order, @room)
 
       #投稿した内容がある
       expect(page).to have_selector('img')
@@ -56,7 +56,7 @@ RSpec.describe "Messages", type: :system do
       }.to change { Message.count }.by(1)
 
       #投稿一覧画面にいる
-      expect(current_path).to eq order_room_messages_path(@order, @room)
+      expect(current_path).to eq new_order_room_message_path(@order, @room)
 
       #投稿した内容がある
       expect(page).to have_content(post)
@@ -80,7 +80,7 @@ RSpec.describe "Messages", type: :system do
       }.to change { Message.count }.by(1)
 
       #投稿一覧画面にいる
-      expect(current_path).to eq order_room_messages_path(@order, @room)
+      expect(current_path).to eq new_order_room_message_path(@order, @room)
 
       #投稿した内容がある
       expect(page).to have_content(post)
@@ -100,7 +100,7 @@ RSpec.describe "Messages", type: :system do
         find('input[name="commit"]').click
       }.not_to change { Message.count }
       #元のページに戻ってくる
-      expect(current_path).to eq order_room_messages_path(@order, @room)
+      expect(current_path).to eq new_order_room_message_path(@order, @room)
     end
   end
 

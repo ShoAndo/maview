@@ -18,13 +18,13 @@
     </div>
   </div>
 </div>
-<div class="messages">
+<div class="messages" id="messages">
   <%= render partial: 'message', collection: @messages %>
 </div>
 
-<%= form_with model: [@room, @message], url: order_room_messages_path(@room.order_id, @room.id), html: {class: "form"}, local: true do |f|%>
+<%= form_with model: [@room, @message], url: order_room_messages_path(@room.order_id, @room.id),method: :post, html: {class: "form"}, local: true do |f|%>
   <div class="form-input">
-    <%= f.text_field :content, class: 'form-message', placeholder: 'type a message' %>
+    <%= f.text_field :content, class: 'form-message', placeholder: 'type a message', id: 'message_text' %>
     <label class="form-image">
       <span class="image-file">画像</span>
       <%= f.file_field :image, class: 'hidden' %>
