@@ -22,7 +22,7 @@
   margin: 0 auto;
 }
 
-.company-list-title{
+.company-list-title, .company-follow-list-title{
   font-size: 20px;
 }
 
