@@ -32,24 +32,24 @@ consumer.subscriptions.create("MessageChannel", {
       messages.insertAdjacentHTML('beforeend', html);
       newMessage.value = '';
     }else{
-      const html = `<div class="message">
-                      <div class="upper-message>
-                        <div class="message-user>
-                          ${ data.profile.name }
-                        </div>
-                        <div class="message-date>
-                          ${ data.profile.created_at }
-                        </div>
-                      </div>
-                      <div class="lower-message>
-                        <div class="message-content">
-                          ${ data.content.content }
-                        </div>
-                      </div>
+      const html = `<div class="message">\n
+                      <div class="upper-message">\n
+                        <div class="message-user">\n
+                          ${ data.profile.name }\n
+                        </div>\n
+                        <div class="message-date">\n
+                          ${ data.profile.date }\n
+                        </div>\n
+                      </div>\n
+                      <div class="lower-message">\n
+                        <div class="message-content">\n
+                          ${ data.content.content }\n
+                        </div>\n
+                      </div>\n
                     </div>`
       const messages = document.getElementById('messages');
       const newMessage = document.getElementById('message_text');
-      messages.insertAdjacentHTML('afterbegin', html);
+      messages.insertAdjacentHTML('beforeend', html);
       newMessage.value = '';
     }
   }
