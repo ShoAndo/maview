@@ -3,6 +3,7 @@ class Order < ApplicationRecord
   has_many :rooms
   has_one :contract
   has_one :payment
+  has_many :likes
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :job_category
 

@@ -41,7 +41,7 @@
   width: 40%;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 5vh;
+  padding-bottom: 4vh;
 }
 
 .order-award{
@@ -82,17 +82,22 @@
 .order-lower-content{
   display: flex;
   justify-content: space-between;
-  height: 1vh;
+  height: 5vh;
 }
 
 .order-company-name{
-  padding: 0.5vh;
+  padding-top: 1vh;
 }
 
 .order-created-at{
-  padding: 0.5px;
+  padding-top: 1vh;
 }
 
 a{
   text-decoration: none;
 }
+
+.good-btn:hover{
+  text-decoration: none;
+}
+

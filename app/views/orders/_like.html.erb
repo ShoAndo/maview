@@ -1,0 +1,14 @@
+<% if creator_signed_in? %>
+  <% if Like.find_by(creator_id: current_creator.id, order_id: order.id) %>
+    <%= link_to  order_like_path(order, order.likes), class: 'good-btn', method: :delete, remote: true do %>
+      いいね<i class="fas fa-heart"></i>
+      <% end %>
+  <% else %>
+    <%= link_to  order_likes_path(order), class: 'good-btn', method: :post, remote: true do %>
+      いいね<i class="far fa-heart"></i>
+      <% end %>
+  <% end %>
+<% else %>
+  <i class="fas fa-heart"></i>
+<% end %>
+<%= order.likes.length %>

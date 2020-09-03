@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_31_080947) do
+ActiveRecord::Schema.define(version: 2020_09_03_022737) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -103,6 +103,15 @@ ActiveRecord::Schema.define(version: 2020_08_31_080947) do
     t.index ["creator_id"], name: "index_introductions_on_creator_id"
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "order_id"
+    t.bigint "creator_id"
+    t.index ["creator_id"], name: "index_likes_on_creator_id"
+    t.index ["order_id"], name: "index_likes_on_order_id"
+  end
+
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -190,6 +199,8 @@ ActiveRecord::Schema.define(version: 2020_08_31_080947) do
   add_foreign_key "contracts", "creators"
   add_foreign_key "contracts", "orders"
   add_foreign_key "introductions", "creators"
+  add_foreign_key "likes", "creators"
+  add_foreign_key "likes", "orders"
   add_foreign_key "messages", "rooms"
   add_foreign_key "orders", "companies"
   add_foreign_key "outlines", "companies"
