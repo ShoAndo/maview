@@ -13,6 +13,10 @@ class Creator < ApplicationRecord
   has_one :skill
   has_many :sns_credentials
   has_many :likes
+  has_many :creator_relationships
+  has_many :followings, through: :creator_relationships, source: :follow
+  has_many :reverse_of_relationships, class_name: 'CompanyRelationship', foreign_key: 'follow_id'
+  has_many :followers, through: :reverse_of_relationships, source: :company
   zenkaku = /\A[ぁ-んァ-ン一-龥]/
   kana = /\A[ァ-ヶー－]+\z/
 
@@ -40,5 +44,20 @@ class Creator < ApplicationRecord
       sns.creator
     end
     { creator: creator, sns: sns }
+  end
+
+  def follow(other_user)
+    unless self == other_user
+      self.creator_relationships.find_or_create_by(follow_id: other_user.id)
+    end
+  end
+
+  def unfollow(other_user)
+    relationship = self.creator_relationships.find_by(follow_id: other_user.id)
+    relationship.destroy if relationship
+  end
+
+  def following?(other_user)
+    self.followings.include?(other_user)
   end
 end
