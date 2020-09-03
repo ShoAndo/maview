@@ -1,7 +1,7 @@
 <div class="chat-header">
   <div class="left-header">
     <div class="header-title">
-      <%= @room.name%>
+      <%= @room.name%><%= link_to @room.creator.first_name + @room.creator.last_name, creator_path(@room.creator), class: 'creator-profile-link' %>
     </div>
   </div>
   <div class="right-header">

@@ -12,9 +12,9 @@
         <div class="company-follow-list">
           <% if creator_signed_in? %>
             <% if CreatorRelationship.find_by(creator_id: current_creator.id) %>
-              <%= link_to 'フォロー解除する', company_creator_relationship_path(@company), method: :delete %>
+              <%= link_to 'フォロー解除する', company_creator_relationship_path(@company), method: :delete, class: 'follow-btn' %>
             <% else %>
-              <%= link_to 'フォローする', company_creator_relationships_path(@company), method: :post %>
+              <%= link_to 'フォローする', company_creator_relationships_path(@company), method: :post,  class: 'follow-btn' %>
             <% end %>
           <% end %>
           <%= @following.length %>

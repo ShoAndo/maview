@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   }
   root 'orders#index'
   resources :creators, only: [:index, :edit, :show, :update] do
+    resources :company_relationships, only: [:create, :destroy]
     resources :careers, only: [:new, :create, :edit, :update]
     resources :introductions, only: [:new, :create, :edit, :update]
     resources :portforios, only: [:new, :create, :edit, :update]

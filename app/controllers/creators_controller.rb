@@ -20,6 +20,8 @@ class CreatorsController < ApplicationController
     end
 
     @contracts = Contract.includes(:creator).includes(:order).where(creator_id: @creator.id)
+    @following = CreatorRelationship.where(creator_id: @creator.id)
+    @follower = CompanyRelationship.where(follow_id: @creator.id)
   end
 
   def edit

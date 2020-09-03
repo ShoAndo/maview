@@ -4,10 +4,8 @@ class CreatorRelationshipsController < ApplicationController
   def create
     following = current_creator.follow(@company)
     if following.save
-      flash[:success] = 'フォローしました'
       redirect_to company_path(@company)
     else
-      flash[:alert] = 'フォローに失敗しました'
       redirect_to company_path(@company)
     end
   end
@@ -15,10 +13,8 @@ class CreatorRelationshipsController < ApplicationController
   def destroy
     following = current_creator.unfollow(@company)
     if following.destroy
-      flash[:success] = 'フォローを解除しました'
       redirect_to company_path(@company)
     else
-      flash[:alert] = 'フォロー解除に失敗しました'
       redirect_to company_path(@company)
     end
   end

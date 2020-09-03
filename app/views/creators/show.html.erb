@@ -8,6 +8,23 @@
       </div>
       <div class="creator-profile-content ">
         <div class="creator-content-list">
+          <div class="company-follow-list-title">フォロー数</div>
+          <div class="company-follow-list">
+            <% if company_signed_in? %>
+              <% if CompanyRelationship.find_by(company_id: current_company.id) %>
+                <%= link_to 'フォロー解除する', creator_company_relationship_path(@creator), method: :delete, class: 'follow-btn' %>
+              <% else %>
+                <%= link_to 'フォローする', creator_company_relationships_path(@creator), method: :post,  class: 'follow-btn' %>
+              <% end %>
+            <% end %>
+            <%= @following.length %>
+          </div>
+        </div>
+        <div class="creator-content-list">
+          <div class="company-follow-list-title">フォロワー数</div>
+          <div class="company-follow-list"><%= @follower.length %></div>
+        </div>
+        <div class="creator-content-list">
           <div class="creator-name-title">名前</div>
           <div class="creator-name"><%= @creator.first_name %> <%= @creator.last_name %></div>
         </div>

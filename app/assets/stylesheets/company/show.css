@@ -112,3 +112,7 @@
   justify-content: space-between;
   font-size: 20px;
 }
+
+.follow-btn:hover{
+  text-decoration: none;
+}
