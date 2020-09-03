@@ -12,6 +12,7 @@ class Creator < ApplicationRecord
   has_one :portforio
   has_one :skill
   has_many :sns_credentials
+  has_many :likes
   zenkaku = /\A[ぁ-んァ-ン一-龥]/
   kana = /\A[ァ-ヶー－]+\z/
 

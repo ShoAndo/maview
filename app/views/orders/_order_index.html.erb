@@ -16,7 +16,9 @@
       </div>
     </div>
     <div class="order-lower-content">
-      <div class="order-company-name"><%= order.company.name %></div>
+      <div class="order-company-name">
+        <%= order.company.name %> <span id="like-<%= order.id %>"><%= render partial: 'like', locals: {  order: order } %></span>
+      </div>
       <div class="order-created-at">掲載日: <%= order.created_at.strftime('%Y/%m/%d') %></div>
     </div>
   </div>

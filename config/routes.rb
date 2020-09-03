@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
   resources :rooms, only: :index
   resources :orders do
+    resources :likes, only: [:create, :destroy]
     resources :rooms, only: [:new, :create, :destroy] do
       resources :payments, only: [:index, :create]
       resources :messages, only: [:new, :create]
