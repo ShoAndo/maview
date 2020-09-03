@@ -14,6 +14,8 @@ class CompaniesController < ApplicationController
       @card = customer.cards.first
     end
     @contracts = Contract.includes(:creator).includes(:order).where(company_id: @company.id)
+    @following = CompanyRelationship.where(company_id: @company.id)
+    @follower = CreatorRelationship.where(follow_id: @company.id)
   end
 
   def edit

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_022737) do
+ActiveRecord::Schema.define(version: 2020_09_03_071647) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -65,6 +65,16 @@ ActiveRecord::Schema.define(version: 2020_09_03_022737) do
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
   end
 
+  create_table "company_relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "company_id"
+    t.bigint "follow_id"
+    t.index ["company_id", "follow_id"], name: "index_company_relationships_on_company_id_and_follow_id", unique: true
+    t.index ["company_id"], name: "index_company_relationships_on_company_id"
+    t.index ["follow_id"], name: "index_company_relationships_on_follow_id"
+  end
+
   create_table "contracts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -74,6 +84,16 @@ ActiveRecord::Schema.define(version: 2020_09_03_022737) do
     t.index ["company_id"], name: "index_contracts_on_company_id"
     t.index ["creator_id"], name: "index_contracts_on_creator_id"
     t.index ["order_id"], name: "index_contracts_on_order_id"
+  end
+
+  create_table "creator_relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "creator_id"
+    t.bigint "follow_id"
+    t.index ["creator_id", "follow_id"], name: "index_creator_relationships_on_creator_id_and_follow_id", unique: true
+    t.index ["creator_id"], name: "index_creator_relationships_on_creator_id"
+    t.index ["follow_id"], name: "index_creator_relationships_on_follow_id"
   end
 
   create_table "creators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -195,9 +215,13 @@ ActiveRecord::Schema.define(version: 2020_09_03_022737) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cards", "companies"
   add_foreign_key "careers", "creators"
+  add_foreign_key "company_relationships", "companies"
+  add_foreign_key "company_relationships", "creators", column: "follow_id"
   add_foreign_key "contracts", "companies"
   add_foreign_key "contracts", "creators"
   add_foreign_key "contracts", "orders"
+  add_foreign_key "creator_relationships", "companies", column: "follow_id"
+  add_foreign_key "creator_relationships", "creators"
   add_foreign_key "introductions", "creators"
   add_foreign_key "likes", "creators"
   add_foreign_key "likes", "orders"

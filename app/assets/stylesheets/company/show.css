@@ -22,7 +22,7 @@
   margin: 0 auto;
 }
 
-.company-list-title{
+.company-list-title, .company-follow-list-title{
   font-size: 20px;
 }
 
@@ -111,4 +111,8 @@
   display: flex;
   justify-content: space-between;
   font-size: 20px;
+}
+
+.follow-btn:hover{
+  text-decoration: none;
 }
