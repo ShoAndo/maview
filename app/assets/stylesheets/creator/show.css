@@ -144,3 +144,19 @@
 .creator-score-list-content-next:hover{
   text-decoration: none;
 }
+
+@media(max-width: 599px){
+  .creator-content-list{
+    font-size: 16px;
+  }
+  .creator-content-category-list {
+    font-size: 16px;
+  }
+  .creator-portforio-content-list, .creator-url-content-list, .creator-detail-content-list, .creator-github-content-list{
+    font-size: 16px;
+  }
+
+  .creator-score-list{
+    font-size: 16px;
+  }
+}
